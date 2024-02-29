@@ -1,0 +1,15 @@
+[project]
+requires-python = 3.11
+
+[tool.poetry]
+name = 'maps'
+version = '1.0.0'
+description = 'map creations experiments'
+authors  = [
+    'Dmitry M <roxt.underground@gmail.com>'
+]
+
+[tool.poetry.dependencies]
+python = "~=3.11"
+poetry = {version=">=1.8.1", python='3.11'}
+flask = "^3.0.2"

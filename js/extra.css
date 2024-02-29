@@ -1,0 +1,25 @@
+#map {
+    height: 100%;
+    z-index: 5;
+}
+
+#control {
+    position: absolute;
+    z-index: 10;
+    top: 20px;
+    left: 70px;
+    background: white;
+    padding: 3px;
+}
+
+.leaflet-right > .leaflet-control {
+    display: none;
+}
+
+#messages.ok {
+    color: darkgreen;
+}
+
+#messages.error {
+    color: darkred;
+}

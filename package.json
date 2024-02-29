@@ -1,0 +1,22 @@
+{
+  "name": "maps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "author": "Dmitry M",
+  "license": "ISC",
+  "dependencies": {
+    "leaflet": "file:../Leaflet",
+    "leaflet-plugins": "git+https://github.com/shramov/leaflet-plugins.git",
+    "webpack": "^5.90.3"
+  },
+  "devDependencies": {
+    "css-loader": "^6.10.0",
+    "style-loader": "^3.3.4",
+    "webpack-cli": "^5.1.4"
+  }
+}
