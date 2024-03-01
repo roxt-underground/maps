@@ -23,3 +23,18 @@
 #messages.error {
     color: darkred;
 }
+
+button {
+    margin: 3px;
+    padding: 5px;
+    background: rgb(225,235,255);
+    background: linear-gradient(180deg, rgba(225,235,255,1) 0%, rgba(230,234,255,1) 15%, rgba(154,209,255,1) 85%, rgba(131,154,255,1) 100%);
+    color: black;
+    border: solid 1px #839aff;
+    min-width: max-content;
+    border-radius: 4px;
+}
+
+#control button {
+    width: 100px;
+}

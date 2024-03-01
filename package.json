@@ -5,13 +5,14 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --config js/webpack.config.js"
+    "build": "webpack --config js/webpack.config.js",
+    "watch": "webpack --watch --config js/webpack.config.js"
   },
   "author": "Dmitry M",
   "license": "ISC",
   "dependencies": {
-    "leaflet": "^1.9.4",
-    "leaflet-plugins": "git+https://github.com/shramov/leaflet-plugins.git",
+    "leaflet": "==1.9.2",
+    "leaflet-plugins": "^3.4.0",
     "webpack": "^5.90.3"
   },
   "devDependencies": {

@@ -1,0 +1,7 @@
+polylines
+static
+node_modules
+.venv
+.git
+**/__pycache__/
+Dockerfile

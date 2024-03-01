@@ -1,4 +1,5 @@
 const L = require('leaflet/src/Leaflet');
+global.L = L;
 import {do_post} from "./utils/requests";
 import {layer_from_path} from "./geojson/main"
 
@@ -49,11 +50,12 @@ global.prepare = async function () {
     const layers = [
         "/geojson/polyline.170924527156.json",
         "/geojson/polyline.170929245206.json",
+        "/geojson/polyline.170931940893.json",
     ]
     layers.forEach((value) => {
         (async (_value) => {
-            let geometry = await layer_from_path(_value);
-            geometry.addTo(map);
+            let geometry_layer = await layer_from_path(_value);
+            geometry_layer.addTo(global.map);
         })(value);
     });
 }
