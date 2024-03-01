@@ -1,12 +1,13 @@
 const L = require('leaflet/src/Leaflet');
-global.L = L;
+import {do_post} from "./utils/requests";
+import {layer_from_path} from "./geojson/main"
 
 let map;
 let route;
 
 
 global.init = () => {
-    map = L.map('map').setView([55.565946, 37.500887], 13);
+    global.map = map = L.map('map').setView([55.565946, 37.500887], 13);
     route = L.polyline([], {color: 'red'})
     init_layers(map);
     route.addTo(map);
@@ -27,7 +28,6 @@ function add_popup_on_click(_map) {
     function onMapClick(e) {
         let popup = L.popup();
         let addButton = document.createElement('button');
-        addButton.tagName = 'button'
         addButton.textContent = 'add';
         addButton.onclick = function () {
             route.addLatLng(e.latlng);
@@ -45,37 +45,18 @@ global.save_route = (event) => {
     do_post('/api/polyline', rout_body);
 }
 
-
-function post_message(text, klass='') {
-    let messagebox = document.getElementById('messages')
-    messagebox.textContent = text;
-    messagebox.className = klass;
+global.prepare = async function () {
+    const layers = [
+        "/geojson/polyline.170924527156.json",
+        "/geojson/polyline.170929245206.json",
+    ]
+    layers.forEach((value) => {
+        (async (_value) => {
+            let geometry = await layer_from_path(_value);
+            geometry.addTo(map);
+        })(value);
+    });
 }
 
-
-function do_post(path, _obj) {
-     (async () => {
-        const response = await fetch(path, {
-            method: 'POST',
-            body: JSON.stringify(_obj),
-            headers: {
-              'Accept': 'application/json',
-              'Content-Type': 'application/json'
-            },
-        }).catch((error) => {
-            post_message(JSON.stringify(error), 'error')
-        })
-        if (response) {
-            if (response.status > 299) {
-                post_message(JSON.stringify(await response.json()), 'error')
-            }
-            else {
-                post_message('ok', 'ok')
-            }
-        }
-    })();
-}
-
-global.init =  init;
-global.map = map;
+global.init = init;
 global.route = route;

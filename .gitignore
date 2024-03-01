@@ -1,3 +1,6 @@
 /node_modules/
 /static/
 /polylines/
+__pycache__
+.idea
+.venv
