@@ -9,12 +9,12 @@
 
 Сборка фронта динамическая:
 
-    docker run --rm -it -w /app --volume $(pwd):/app node:20.11.1-buster npm run watch
+    make watch
 
 Сборка конечного образа:
 
-     docker build . -t maps:latest
+    make local_build
 
 Запуск потыкать собранное:
 
-     docker run --rm -it -p 3000:3000 maps
+    make run
