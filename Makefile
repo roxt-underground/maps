@@ -6,6 +6,10 @@ run: local_build
 	@echo Запуск сервера приложения из образа
 	docker run --rm -it -p 3000:3000 maps
 
+npm_bash:
+	@echo Запуск контейнера, где можно манипулировать npm
+	docker run --rm -it -w /app --volume ${PWD}:/app node:20.11.1-buster bash
+
 watch:
 	@echo Запуск непрерывной сборки фронтенда при изменениях в папке ${PWD}
 	docker run --rm -it -w /app --volume ${PWD}:/app node:20.11.1-buster npm run watch

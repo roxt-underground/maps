@@ -3,5 +3,7 @@ static
 node_modules
 .venv
 .git
+.idea
 **/__pycache__/
 Dockerfile
+Makefile

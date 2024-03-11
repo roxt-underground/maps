@@ -1,7 +1,8 @@
 const L = require('leaflet/src/Leaflet');
 global.L = L;
 import {do_post} from "./utils/requests";
-import {layer_from_path} from "./geojson/main"
+import "./utils/checklist"
+import {generateChecklist} from "./utils/checklist";
 
 let map;
 let route;
@@ -14,6 +15,7 @@ global.init = () => {
     route.addTo(map);
     // hide_copyrights();
     add_popup_on_click(map);
+    prepare();
 }
 
 
@@ -47,17 +49,17 @@ global.save_route = (event) => {
 }
 
 global.prepare = async function () {
-    const layers = [
+    let layersListContainer = document.getElementById('layers')
+    generateChecklist([
         "/geojson/polyline.170924527156.json",
         "/geojson/polyline.170929245206.json",
         "/geojson/polyline.170931940893.json",
-    ]
-    layers.forEach((value) => {
-        (async (_value) => {
-            let geometry_layer = await layer_from_path(_value);
-            geometry_layer.addTo(global.map);
-        })(value);
-    });
+        "/geojson/polyline.171007873424.json",
+        '/geojson/polyline.171007938270.json',
+        '/geojson/polyline.171008068129.json',
+        '/geojson/polyline.171010660268.json',
+        '/geojson/polyline.171010833151.json',
+    ], layersListContainer, map, true);
 }
 
 global.init = init;

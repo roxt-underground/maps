@@ -1,7 +1,7 @@
 {
   "type": "Feature",
   "properties": {
-    "color": "#00AA00",
+    "color": "#00AA0099",
     "description": "Троицкая линия метро"
   },
   "geometry": {
