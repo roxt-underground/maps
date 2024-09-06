@@ -1,9 +1,13 @@
 {
-  "type": "Feature",
+  "type": "FeatureCollection",
   "properties": {
     "description": "Дорога \"Солнцево-Бутово-Видное\" и \"Южно-Лыткаринская автодорога\"",
     "color": "red"
   },
+  "features": [
+    {
+  "type": "Feature",
+  "properties": {},
   "geometry": {
     "type": "LineString",
     "coordinates": [
@@ -801,4 +805,6 @@
       ]
     ]
   }
+}
+  ]
 }
